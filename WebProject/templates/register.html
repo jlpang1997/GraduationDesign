@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>hello world</title>
+    <link href="../static/css/styleTest.css" rel="stylesheet" type="text/css" />
+    <script language="JavaScript" src="../static/js/jquery.js"></script>
+</head>
+
+<body class ="heshuwen"
+>
+
+
+    <div class="loginbody">
+        <div class="loginbox" >
+            
+                <ul>
+                    <form  method='post' action='/register'>
+                        {% csrf_token %}
+                        <li><input name="email" type="text" class="loginuser" value="pjl14680@mail.ustc.edu.cn" /></li>
+                        <li><input name="password" type="text" class="loginpwd" value="123456" /></li>
+                        <li><input name="confirm_password" type="text" class="loginpwd" value="123456" /></li>
+                        <li><input name="" type="submit" class="loginbtn" value="注册" /></li>
+                        {% if err_meg %}
+                        <li><h>{{err_meg}}</h></li>
+                        {% endif %}
+                    </form>
+                    <li><a class="loginbtn" href='/login'>登录</a></li>
+                </ul>
+            
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+</body>
+</html>

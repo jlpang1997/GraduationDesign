@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+	<html >
+	    <head>
+            <title>舆情分析系统</title>
+            <link rel="icon" href="static/images/ustc3.png" type="image/x-icon"/>
+	        <meta charset="utf-8">
+	        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="../static/css/uikit.min.css" type="text/css"/>
+            <script src="../static/js/uikit-icons.min.js" type="text/javascript"> </script>
+	        <script src="../static/js/uikit.min.js" type="text/javascript"></script>
+	        
+        </head>
+            
+	    <body class='uk-background-muted'>
+            <h1 class="uk-heading-line uk-text-center"><span ><a href="/index">舆情分析系统</a></span></h1>
+            <nav class="uk-navbar-container" uk-navbar>
+
+                <div class="uk-navbar-left">
+            
+                    <ul class="uk-navbar-nav">
+                        <li class="uk-active"><a href="/index">首页</a></li>
+                        <li class="uk-active"><a href="/zhihu">知乎</a></li>
+                        <li class="uk-active"><a href="/weibo">微博</a></li>
+                        <li class="uk-active"><a href="/tieba">贴吧</a></li>
+                        <li class="uk-active"><a href="/shuimu">水木</a></li>
+                    </ul>
+            
+                </div>
+            
+                <div class="uk-navbar-right">
+            
+                    <ul class="uk-navbar-nav">
+                        <li class="uk-active"><a href="/register">注册</a></li>
+                        <li class="uk-active"><a href="/login">登录</a></li>
+                        <li class="uk-active"><a href="/out">退出</a></li>
+                    </ul>
+            
+                </div>
+            
+            </nav>
+            <ul uk-accordion="collapsible: false">
+                <li>
+                    <a class="uk-accordion-title" href="{{site_url}}">{{site_name}}</a>
+                    <div class="uk-accordion-content">
+                        <div class="uk-card uk-container-expand">
+
+                            <div class="uk-card-header">
+                                <h5 >自定义主题帖舆情分析</h5>
+                                <p>说明：请输入主题帖的完整链接，如：<a href={{search_sample}}>{{search_sample}}</a></p>
+                            </div>
+                            <div class="uk-card-body">
+                                <div class="uk-margin">
+                                    <form class="uk-search uk-search-default uk-width-1-1"  method='post' action={{search_action}} >
+                                        {% csrf_token %}
+                                        <span class="uk-search-icon-flip" uk-search-icon></span>
+                                        <input class="uk-search-input " type="search"  name='search'>
+                                    </form>
+                                </div>
+                            
+                            </div>
+
+                            <div class="uk-card-header">
+                                <h2 >实时十大话题</h2>
+                            </div>
+                            <div class="uk-card-body">
+                                <ul>
+                                    {% for topic in topics %}
+                                    <li>
+                                        <div><a href={{topic.link}}>{{topic.title}}</a></div>
+                                        <div>
+                                            <ul>
+                                                <li><div>积极比例：{{topic.positive_rate}}</div></li>
+                                                <li><div>消极比例：{{topic.negative_rate}}</div></li>
+                                                <li><div>积极发言数：{{topic.pos_count}} 条</div></li>
+                                                <li><div>消极发言数：{{topic.neg_count}} 条</div></li>
+                                                <li><div>总发言数：{{topic.total_count}} 条</div></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                     
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+	    </body>
+	</html>
