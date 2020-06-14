@@ -23,4 +23,5 @@ if __name__ == '__main__':
     # tasks=[main(),run()]
     # loop.run_until_complete(asyncio.wait(tasks))
     # loop.close()
-    main()
+    # main()
+    pass
