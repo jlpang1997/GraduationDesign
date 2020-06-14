@@ -2,9 +2,7 @@
 
 实在是太大了，邮件发不了，我试着上传到我的github上，https://github.com/jlpang1997/GraduationDesign
 
-Networks训练神经网络用的，里面有好几个NLP模型，接入webapp的是TextRNN，即LSTM
-
-WebProject是整个Django工程
+WebProject是整个Django工程,两个情感分类器我都集成到里面去了
 
 ## 数据集说明
 
@@ -36,7 +34,7 @@ mysql5.7
 
 python manage.py runserver
 
-然后在浏览器本地访问http://127.0.0.1:8000/index即可进入主页，然后每个网站的相关功能就可以一个一个看了。
+然后在浏览器本地访问http://127.0.0.1:8000/index即可进入主页，然后网站的相关功能就可以一个一个看了。
 
 ## 一些说明
 
